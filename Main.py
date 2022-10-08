@@ -25,7 +25,7 @@ def merge_sort(data) -> None:
     return
   mid = len(data)//2
   data = merge(merge_sort(data[:mid]), merge_sort(data[mid:]))
-  return
+  return data
 
 
 # Do not change the following code
