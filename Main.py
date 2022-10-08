@@ -21,10 +21,9 @@ def merge(l1: [int], l2: [int]) -> [int]:
   return new
 
 def merge_sort(data) -> None:
-  if len(data) <= 1:
-    return
-  mid = len(data)//2
-  data = merge(merge_sort(data[:mid]), merge_sort(data[mid:]))
+  if len(data) > 1:
+    mid = len(data)//2
+    data = merge(merge_sort(data[:mid]), merge_sort(data[mid:]))
   return data
 
 
