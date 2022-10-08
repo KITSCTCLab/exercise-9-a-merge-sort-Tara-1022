@@ -16,15 +16,17 @@ def merge(arr: [int], l: int, mid: int, r: int) -> [int]:
   while i < len(l1):
     arr[k] = l1[i]
     i += 1
+    k += 1
   while j < len(l2):
     arr[k] - l2[j]
     j += 1
+    k += 1
 
 def merge_sort_ftn(arr, l, r) -> None:
   if r - l >= 2:
     mid = l + (r - l) // 2
     merge_sort_ftn(arr, l, mid)
-    merge_sort_ftn(arr, mid + 1, r)
+    merge_sort_ftn(arr, mid, r)
     merge(arr, l, mid, r)
   
 def merge_sort(data) -> None:
