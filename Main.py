@@ -1,30 +1,34 @@
 from typing import List
 
-def merge(l1: [int], l2: [int]) -> [int]:
-  new = [0] * (len(l1) + len(l2))
+def merge(arr: [int], l: int, mid: int, r: int) -> [int]:
+  l1 = arr[l:mid]
+  l2 = arr[mid:r]
   i, j = 0, 0
-  k =  0
+  k =  l
   while i < len(l1) and j < len(l2):
     if l1[i] < l2[j]:
-      new[k] = l1[i]
+      arr[k] = l1[i]
       i += 1
     else:
-      new[k] = l2[j]
+      arr[k] = l2[j]
       j += 1
     k += 1
   while i < len(l1):
-    new[k] = l1[i]
+    arr[k] = l1[i]
     i += 1
   while j < len(l2):
-    new[k] = l2[j]
+    arr[k] - l2[j]
     j += 1
-  return new
 
+def merge_sort_ftn(arr, l, r) -> None:
+  if l + 1 < r:
+    mid = (l + r) // 2
+    merge_sort(arr, l, mid)
+    merge_sort(arr, mid, r)
+    merge(arr, l, mid, r)
+  
 def merge_sort(data) -> None:
-  if len(data) > 1:
-    mid = len(data)//2
-    data = merge(merge_sort(data[:mid]), merge_sort(data[mid:]))
-  return data
+  merge_sort_ftn(data, 0, len(data))
 
 
 # Do not change the following code
