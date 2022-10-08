@@ -21,10 +21,10 @@ def merge(arr: [int], l: int, mid: int, r: int) -> [int]:
     j += 1
 
 def merge_sort_ftn(arr, l, r) -> None:
-  if l + 1 < r:
-    mid = (l + r) // 2
+  if r - l >= 2:
+    mid = l + (r - l) // 2
     merge_sort_ftn(arr, l, mid)
-    merge_sort_ftn(arr, mid, r)
+    merge_sort_ftn(arr, mid + 1, r)
     merge(arr, l, mid, r)
   
 def merge_sort(data) -> None:
