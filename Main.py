@@ -1,6 +1,11 @@
 from typing import List
 
 def merge(arr: [int], l: int, mid: int, r: int) -> [int]:
+  #Function implementing merging of two sorted sub-arrays
+  #Input: arr -> array
+  #       l: -> start index
+  #       mid: -> middle index
+  #       r: -> right index
   l1 = arr[l:mid]
   l2 = arr[mid:r]
   i, j = 0, 0
@@ -23,6 +28,7 @@ def merge(arr: [int], l: int, mid: int, r: int) -> [int]:
     k += 1
 
 def merge_sort_ftn(arr, l, r) -> None:
+  #Function implementing in-place merge sort of subarray arr[l:r]
   if r - l >= 2:
     mid = l + (r - l) // 2
     merge_sort_ftn(arr, l, mid)
@@ -30,6 +36,7 @@ def merge_sort_ftn(arr, l, r) -> None:
     merge(arr, l, mid, r)
   
 def merge_sort(data) -> None:
+  #TFunction carrying out in-place sorting of given array
   merge_sort_ftn(data, 0, len(data))
 
 
